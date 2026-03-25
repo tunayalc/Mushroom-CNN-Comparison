@@ -1,28 +1,74 @@
 ﻿# Mushroom-CNN-Comparison
 
-Bu proje, mantar siniflandirma problemi icin farkli CNN mimarilerini karsilastirir ve model performansini hem sayisal hem gorsel raporlarla analiz eder.
+Mushroom-CNN-Comparison benchmarks multiple convolutional neural network architectures on a mushroom image classification task and provides post-training analysis utilities.
 
-## Hızlı Başlangıç
+## Project Objective
+Compare model behavior across modern CNN backbones and produce interpretable evaluation outputs such as confusion matrices and training curves.
+
+## Core Technologies
+- Python 3
+- PyTorch
+- torchvision / timm-style model usage
+- scikit-learn
+- matplotlib
+
+## Compared Model Families
+- ConvNeXt
+- EfficientNetB0
+- MobileNetV3
+
+## Project Workflow
+1. Prepare and split dataset
+2. Train each architecture
+3. Log train/test metrics
+4. Generate comparison visualizations
+
+## Main Scripts
+### Training
+- `src/models/convnext.py`
+- `src/models/efficientnetb0.py`
+- `src/models/mobilenetv3.py`
+- `src/models/logger.py`
+- `src/models/split_code.py`
+
+### Analysis
+- `src/graphs/confusion_matrix.py`
+- `src/graphs/graph.py`
+- `src/graphs/data.py`
+
+## Installation
 ```bash
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Model egitimi ve loglama adimlarini tamamladiktan sonra analiz scriptlerini calistirin.
+## Typical Run Flow
+```bash
+python src/models/convnext.py
+python src/models/efficientnetb0.py
+python src/models/mobilenetv3.py
+python src/graphs/confusion_matrix.py
+python src/graphs/graph.py
+```
 
-## Yöntem
-- Birden fazla CNN mimarisinin ayni veri uzerinde egitilmesi
-- Egitim/test loglarinin JSON formatinda kaydedilmesi
-- Confusion matrix ve performans grafikleri ile karsilastirmali analiz
+## Outputs
+- `train_log.json`
+- `test_log.json`
+- confusion matrix plots
+- comparison graphs
 
-## Sonuçlar
-Sonuclar veri bolme stratejisi, augmentasyon ve hiperparametrelere gore degisir. Karsilastirma yaparken ayni split/seed ile tekrarlanmasi onerilir.
+## Repository Structure
+```text
+Mushroom-CNN-Comparison/
+ src/models/
+ src/graphs/
+ train_log.json
+ test_log.json
+ requirements.txt
+ README.md
+```
 
-## Proje Yapısı
-- `src/models/`: model tanimlari ve egitim scriptleri
-- `src/graphs/`: analiz ve gorsellestirme scriptleri
-- `train_log.json`, `test_log.json`: deney ciktilari
-
-## Ana Dosyalar
-- `src/models/` altindaki egitim kodlari
-- `src/graphs/` altindaki raporlama kodlari
+## Notes
+- Use fixed seeds and consistent splits for fair architecture comparison.
+- GPU is strongly recommended for practical training times.
+- Include class-balance checks to avoid misleading accuracy metrics.
