@@ -1,20 +1,28 @@
-﻿# Mushroom CNN Comparison
+﻿# Mushroom-CNN-Comparison
 
-Compare multiple CNN architectures for mushroom species classification.
-Includes model definitions, logging utilities, and analysis scripts.
+Bu proje, mantar siniflandirma problemi icin farkli CNN mimarilerini karsilastirir ve model performansini hem sayisal hem gorsel raporlarla analiz eder.
 
-## Structure
+## Hızlı Başlangıç
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-- src/models: model definitions and training helpers
-- src/graphs: analysis utilities and plotting scripts
+Model egitimi ve loglama adimlarini tamamladiktan sonra analiz scriptlerini calistirin.
 
-## Workflow
+## Yöntem
+- Birden fazla CNN mimarisinin ayni veri uzerinde egitilmesi
+- Egitim/test loglarinin JSON formatinda kaydedilmesi
+- Confusion matrix ve performans grafikleri ile karsilastirmali analiz
 
-1. Split dataset (see `src/models/split_code.py`).
-2. Train models and write logs (train_log.json, test_log.json).
-3. Run analysis scripts to generate comparison plots and confusion matrices.
+## Sonuçlar
+Sonuclar veri bolme stratejisi, augmentasyon ve hiperparametrelere gore degisir. Karsilastirma yaparken ayni split/seed ile tekrarlanmasi onerilir.
 
-## Notes
+## Proje Yapısı
+- `src/models/`: model tanimlari ve egitim scriptleri
+- `src/graphs/`: analiz ve gorsellestirme scriptleri
+- `train_log.json`, `test_log.json`: deney ciktilari
 
-- Training logs and model weights are generated locally and are not tracked in git.
-- See requirements.txt for core dependencies.
+## Ana Dosyalar
+- `src/models/` altindaki egitim kodlari
+- `src/graphs/` altindaki raporlama kodlari
