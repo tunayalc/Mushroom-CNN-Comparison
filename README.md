@@ -2,7 +2,7 @@
 
 Mushroom-CNN-Comparison benchmarks multiple convolutional neural network architectures on a mushroom image classification task and provides post-training analysis utilities.
 
-## Project Objective
+## Project Purpose
 Compare model behavior across modern CNN backbones and produce interpretable evaluation outputs such as confusion matrices and training curves.
 
 ## Core Technologies
@@ -72,3 +72,5 @@ Mushroom-CNN-Comparison/
 - Use fixed seeds and consistent splits for fair architecture comparison.
 - GPU is strongly recommended for practical training times.
 - Include class-balance checks to avoid misleading accuracy metrics.
+
+
